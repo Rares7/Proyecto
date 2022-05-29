@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoriaController!{% endblock %}
+
+{% block body %}
+    <h1>Adminstración de categorias</h1>
+
+    {% if myForm is defined %}
+        {{ form(myForm) }}
+    {% else %}
+        <div>
+            <a href="{{ path('app_categoria_new') }}" class="btn btn-primary">Nueva</a>
+        </div>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>
+                    <a href="{{ path('app_categoria_edit', {id: item.id}) }}" class="btn btn-primary">Editar</a>
+                    <a href="{{ path('app_categoria_delete', {id: item.id}) }}" class="btn btn-secondary">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% include 'incs/paginadorAdmin.html.twig' with {'path2list': 'app_categoria_lst'} %}
+    {% endif %}
+
+{% endblock %}

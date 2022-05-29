@@ -1,0 +1,29 @@
+{% block direccion_row %}
+<fieldset class="form-group-fielset">
+    <legend class="form-group-legend">{{ form_label(form) }}</legend>
+    
+    <div class="form-group">
+        {{ form_row(form.direccion) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.localidad) }}
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            {{ form_row(form.provincia) }}
+        </div>
+        <div class="form-group col-6">
+            {{ form_row(form.cp) }}
+        </div>
+    </div>
+
+    {% for child in form.children|filter(child => not child.rendered) %}
+    <div class="form-group">
+        {{ form_label(child) }}
+        {{ form_widget(child) }}
+        {{ form_help(child) }}
+        {{ form_errors(child) }}
+    </div>
+    {% endfor %}
+</fieldset>
+{% endblock %}

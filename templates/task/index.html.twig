@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TaskController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/Users/Toni/Sites/test/symphony/src/blog/src/Controller/TaskController.php'|file_link(0) }}">src/Controller/TaskController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/Users/Toni/Sites/test/symphony/src/blog/templates/task/index.html.twig'|file_link(0) }}">templates/task/index.html.twig</a></code></li>
+    </ul>
+
+    <h1>Formulario con createBuildForm()</h1>
+    {{ form(myForm) }}
+
+    <h1>Formulario con createForm usando un FormType personalizado</h1>
+    
+    {{ form_start(myForm2) }}
+    <div class="row">
+        <div class="col-6">
+            {{ form_row(myForm2.task)}}
+        </div>
+        <div class="col-6">
+            {{ form_row(myForm2.tipo)}}
+        </div>
+    </div>
+    {{ form_end(myForm2) }}
+
+
+</div>
+{% endblock %}

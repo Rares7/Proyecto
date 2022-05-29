@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoriaController!{% endblock %}
+
+{% block body %}
+    <h1>Adminstración de Noticias</h1>
+
+    {% if myForm is defined %}
+        {{ form(myForm) }}
+    {% else %}
+        <div>
+            <a href="{{ path('app_noticia_new') }}" class="btn btn-primary">Nueva</a>
+        </div>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Imagen</th>
+                <th>Título</th>
+                <th>Categoria</th>
+                <th>Autor</th>
+                <th>Fecha publicación</th>
+                <th>Acciones</th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>
+                    {% if item.rutaImagen %}
+                        <img src="{{ asset(item.rutaImagen) }}" alt="" height="50">
+                    {% else %}
+                        --
+                    {% endif %}
+                </td>
+                <td>{{ item.titulo }}</td>
+                <td>{{ item.categoria ? item.categoria.nombre : "--" }}</td>
+                <td>{{ item.autor }}</td>
+                <td>{{ item.fechaPub|date }}</td>
+                <td>
+                    <a href="{{ path('app_noticia_edit', {id: item.id}) }}" class="btn btn-primary">Editar</a>
+                    <a href="{{ path('app_noticia_delete', {id: item.id}) }}" class="btn btn-secondary">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% include 'incs/paginadorAdmin.html.twig' with {'path2list': 'app_noticia_lst'} %}
+    {% endif %}
+
+{% endblock %}

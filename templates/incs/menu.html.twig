@@ -1,0 +1,20 @@
+<nav id="menu" class="zona">
+    <div id="menu-movil">
+        <img src="{{ asset('img/menu.png') }}" alt="">
+    </div>
+    <ul>
+        <li><a href="{{ path('app_home') }}">Inicio</a></li>
+        <li><a href="{{ path('app_donde_estamos') }}">Donde estamos</a></li>
+        <li>
+            <a href="#">Multiplicar</a>
+        </li>
+        <li><a href="{{ path('app_contacto') }}">Contacto</a></li>
+        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USUARIO') %}
+        <li><a href="{{ path('app_noticia_lst') }}">Admon Noticias</a></li>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+        <li><a href="{{ path('app_categoria_lst') }}">Admon Categorias</a></li>
+        <li><a href="{{ path('app_user_lst') }}">Admon Usuarios</a></li>
+        {% endif %}
+    </ul>
+</nav>

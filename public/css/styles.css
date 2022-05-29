@@ -1,0 +1,134 @@
+* { box-sizing: border-box; }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.zona {
+    overflow:hidden;
+    position: relative;
+}
+.display-table { display: table; }
+.display-table > * { display: table-cell; }
+
+label.required:after { content: " (*) "; }
+
+/* #cabecera { background: #ccc; } */
+/* #menu { background: #5f2; }  */
+/* #wrapper { background: #389; }
+#wrapper article:nth-child(2n-1) { background-color: aqua; }
+#wrapper article:nth-child(2n) { background-color: bisque; }
+#cnt { background: #734; }
+#barraLateral { background: rgb(236, 128, 155); } */
+/* #footer { background: #443322; } */
+
+#selectorIdioma { padding: 10px 7px; text-align: right; } 
+#selectorIdioma a { padding: 0 8px; text-decoration: none; color: black; }
+#selectorIdioma a:hover { color: rgb(43, 43, 188); }
+
+#cabecera header { padding-bottom: 15px; }
+#cabecera header img { display: inline-block; vertical-align: middle; }
+#cabecera header div { display: inline-block; padding: 5px 15px; vertical-align: middle; }
+#cabecera h1 { margin: 0; }
+#cabecera h2 { margin: 0; font-size: 1.3rem; }
+
+#menu ul { margin: 0; padding: 0; list-style: none; }
+#menu ul li { display: inline-block; }
+#menu ul li a { display: block; padding: 10px 16px; text-decoration: none; font-size: 1.3rem; color: #000; transition:.5s }
+#menu ul li a:hover { background-color: black; color:white; }
+
+#menu-movil { display: none; position: absolute; top:-33px; right: 0; }
+#menu-movil { text-align: right; }
+#menu-movil img { width:36px; padding: 5px; cursor: pointer; }
+
+#wrapper { display:table; width: 100%; }
+#cnt, #barraLateral { display:table-cell; padding: 20px 13px; }
+#cnt { width: 66%; }
+
+.noticia { position: relative; overflow: hidden; margin-bottom: 15px; }
+.noticia h1 { margin: 3px 0 8px; }
+.noticia img { float:left; max-width: 100px; padding: 0px 10px 10px 5px; }
+.noticia p { margin: 0 0 6px; line-height: 1.3em; font-size: 1.2rem; text-align: justify; }
+.noticia .leermar { text-align: right; }
+
+.paginacion { text-align: center; }
+.paginacion a { display: inline-block; margin: 0 5px; padding: 5px 10px; text-align: center; text-decoration: none; }
+.paginacion a.disable { opacity: 0.5; cursor: default; }
+
+.tblMulti { display: inline-block; margin: 5px; border-collapse: collapse; }
+.tblMulti th { padding: 3px 10px; text-transform: uppercase; background-color: black; color:white }
+.tblMulti tr { border-bottom: 1px solid #999; }
+.tblMulti tr:nth-child(2n-1) { background-color: #ddd; }
+.tblMulti tr td { min-width: 30px; padding: 3px 3px; text-align: center; }
+
+#footer { padding: 10px; }
+#footer nav { text-align: center; color:black; }
+#footer nav a { margin: 0 10px; }
+
+#social { position: absolute; top: 7px; right: 10px; }
+#social a img { max-width: 24px; }
+
+table.tblAdmon { width: 100%; }
+table.tblAdmon th { 
+    padding:3px 8px; 
+    background-color:#333; 
+    color: #fff; 
+    font-weight:bold; 
+    text-align:center; 
+}
+table.tblAdmon td {
+    padding:5px 10px;
+}
+table.tblAdmon tr:nth-child(2n) {
+    background-color: #e7ebf6;
+}
+table.tblAdmon tr:nth-child(2n-1) {
+    background-color: #bcbbc3;
+}
+table.tblAdmon tfoot tr { background-color: #333!important; color: #fff; text-align: right; }
+
+fieldset { position:relative; margin: 30px 0 15px; border:1px solid #333; border-radius: 8px; padding: 16px; }
+fieldset legend { position: absolute; top: -14px; width: auto; padding: 0 10px; font-weight: bold; background-color: #fff; }
+
+/* TODO lo que esta arriba, se aplica siempre. Está pensado para ordenador (resolución estandar >=1400px) */
+
+/* de aquí para abajo metemos las media queries */
+@media all and (max-width: 1400px) {
+    #cabecera { background: rgb(117, 198, 235); }
+}
+
+@media all and (max-width: 1140px) {
+    #cabecera { background: rgb(82, 101, 187); }
+}
+
+@media all and (max-width: 960px) {
+    #cabecera { background: rgb(143, 162, 249); }
+}
+
+@media all and (max-width: 700px) {
+    #wrapper { display: block; clear: both; }
+    #cnt, #barraLateral { display: block; width: 100%; }
+
+    #cabecera header { padding-right: 40px; }
+    #menu-movil { display: block; }
+    #menu { float: right; overflow: visible; }
+    
+    #menu ul { overflow: hidden; }
+    #menu ul li { display: block; }
+    
+    #menu ul li a { padding: 0; height: 0; transition: .3s; }
+    
+
+    #menu:hover { width: 100%; }
+    #menu:hover ul { display: block; }
+    #menu:hover ul li a { padding: 10px 16px; height: 40px; }
+}
+
+@media all and (max-width: 600px) {
+    #cabecera header img { max-width: 80px;}
+    #cabecera header h1 { font-size: 1.6rem; }
+    #cabecera header h2 { font-size: 1.1rem; }
+    
+    .paginacion a { margin: 0 2px; }
+
+    #social { position: static; text-align: center; padding-top: 10px; }
+}

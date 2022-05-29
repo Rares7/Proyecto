@@ -1,0 +1,18 @@
+<article class="noticia">
+    <header>
+        <h1>{{ noticia.titulo }}</h1>
+        {% if noticia.categoria is defined %}
+        <p>Categoria : {{ noticia.categoria ? noticia.categoria.nombre : "--"}}</p>
+        {% endif %}
+        {% if noticia.fechaPublicacion is defined %}
+            <time datetime="{{ noticia.fechaPublicacion }}">Publicada el {{ noticia.fechaPublicacion|date('d-m-Y') }}</time>
+        {% endif %}
+    </header>
+    <div>
+        {% if noticia.rutaImagen is defined and noticia.rutaImagen %}
+            <img src="{{ asset(noticia.rutaImagen) }}" alt="imagen de recurso">
+        {% endif %}
+        <p>{{ noticia.descripcion }} </p>
+        <p class="leermar"><a href="#">Leer más</a></p>
+    </div>
+</article>

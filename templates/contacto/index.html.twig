@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactoController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Formulario de contacto</h1>
+
+    {% if hasContacto %}
+        <p>Nombre: {{ contacto.nombre }}</p>
+        <p>Email: {{ contacto.email }}</p>
+        <p>Asunto: {{ contacto.asunto }}</p>
+        <p>Mensaje: {{ contacto.mensaje|nl2br }}</p>
+        
+        <p>Imagen: {{ rutaImagen }}</p>
+        
+        {% if not rutaImagen is empty %}
+            <img src="{{ asset(rutaImagen) }}" alt="">
+        {% endif %}
+
+        <p><a href="{{ path("app_contacto") }}">Volver</a></p>
+    {% else %}
+        {{ form(frmContacto) }}
+    {% endif %}
+</div>
+{% endblock %}

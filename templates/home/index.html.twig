@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Taller html5 blog!!!{% endblock %}
+
+{% block body %}
+    
+    {{ form(frmSearch) }}
+
+    {% for noticia in arrNoticias %}
+        {% include "incs/noticia.html.twig" %}
+    {% endfor %}
+    
+    {% set arr = [] %}
+    {% if urlExtraParam is defined %}
+        {% set arr = urlExtraParam %}
+    {% endif %}
+    
+    {% include 'incs/paginadorAdmin.html.twig' with {'path2list': arr|length>0 ? 'app_home_con_cat' : 'app_home'} %}
+{% endblock %}
+
+{% block side_bar %}
+    <aside id="barraLateral" class="zona">
+        
+        {% for noticia in arrNoticiasRelacionadas %}
+            {% include "incs/noticia.html.twig" %}
+        {% endfor %}
+
+    </aside>
+{% endblock %}
