@@ -1,4 +1,4 @@
-# Resultados de futbol
+# Noticiario de deportes
 
 ## Instalación de Symfony
 Antes de instalar symfony, primero debes crear un directorio que será anfitrión de todos los archivos relacionados a tu proyecto:
