@@ -5,9 +5,6 @@
     <ul>
         <li><a href="{{ path('app_home') }}">Inicio</a></li>
         <li><a href="{{ path('app_donde_estamos') }}">Donde estamos</a></li>
-        <li>
-            <a href="#">Multiplicar</a>
-        </li>
         <li><a href="{{ path('app_contacto') }}">Contacto</a></li>
         {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USUARIO') %}
         <li><a href="{{ path('app_noticia_lst') }}">Admon Noticias</a></li>
