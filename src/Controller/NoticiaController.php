@@ -20,7 +20,7 @@ class NoticiaController extends AbstractController {
         $noticia = new Noticia();
         $noticia->setTitulo("Noticia 1");
         $noticia->setDescripcion("asdf asd fasdfasdf asdf");
-        $noticia->setAutor("Toni");
+        $noticia->setAutor("Rares");
 
         $errores = $validator->validate($noticia);
 
